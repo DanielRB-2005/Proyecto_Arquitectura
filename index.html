@@ -1,5 +1,7 @@
+
 <!-- PEDIRLE A LA IA QUE ARREGLE LA INTERFAZ QUE ESTA HORRIBLE -->
-<!-- CAMBIAR COLORES QUE ME QUEMAN LOS OJOS-->
+<!-- CAMBIAR COLORES QUE ME QUEMAN LOS OJOS -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,24 +10,102 @@
     <title>Mi Página Web</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: yellow;
-            color: black;
+            background-color: #f1f3f5;
+            color: #222222;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+        }
+
+        header {
+            background-color: #26364a;
+            color: white;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        nav {
+            background-color: white;
+            padding: 18px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         button {
-            background-color: white;
-            color: black;
-            border: 2px solid black;
-            padding: 10px 20px;
+            background-color: #315b87;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 25px;
             margin: 5px;
+            font-size: 15px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         button:hover {
-            background-color: orange;
+            background-color: #1c3e63;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #26364a;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #315b87;
+            font-weight: bold;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        footer {
+            margin-top: 50px;
+            background-color: #26364a;
+            color: white;
+            padding: 18px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 23px;
+            }
+
+            button {
+                width: 90%;
+                margin: 6px auto;
+            }
+
+            main {
+                margin: 15px auto;
+            }
         }
     </style>
 </head>
@@ -33,74 +113,109 @@
 <body>
 
     <!-- PAGINA PRINCIPAL -->
-    <section id="inicio">
-        <h1>Mi Página Web</h1>
+    <header>
+        <h1>Proyecto de Arquitectura</h1>
+        <p>Información general del proyecto</p>
+    </header>
 
-        <h2>Botones</h2>
-
-        <button onclick="mostrarPagina('Reporte o algo')">
+    <!-- BOTONES -->
+    <nav>
+        <button onclick="mostrarPagina('reporte')">
             Reporte
         </button>
 
-        <button onclick="mostrarPagina('Codigo en Verilog')">
+        <button onclick="mostrarPagina('codigo')">
             Codigo
         </button>
 
-        <button onclick="mostrarPagina('Equipo')">
+        <button onclick="mostrarPagina('equipo')">
             Equipo
         </button>
+    </nav>
 
-        <h2>Reporte</h2>
+    <main>
 
-        <p>
-         Reporte
-            ou she ous he
-            AGREGAR LINK DEL REPORTE
-        </p>
-    </section>
+        <!-- PAGINA DE REPORTE -->
+        <section id="reporte">
 
-    <!-- PAGINA DE SERVICIOS -->
-    <section id="servicios" style="display:none;">
+            <h2>Reporte del Proyecto</h2>
 
-        <h1>Codigo</h1>
+            <p>
+                REPORTE TODA LA INFO EN ESTA PARTE
+            </p>
 
-        <p>
-            EL CODIGO
-            AGREGAR
-            PREGUNTAR SI AGREGAR ENLACE O INCLUIR CODIGO EN 
-            GIT AQUICON ESTE SIONO
-        </p>
+            <p>
+                DE QUE VA A TRATAR EL PROYECTO XXXXXXXXXXXXXXXXXXXXXX NO OLVIDAR DE LLENAR
+            </p>
 
-        <button onclick="mostrarPagina('inicio')">
-            Regresar al menú
-        </button>
+            <!-- AGREGAR LINK DEL REPORTE -->
+            <a href="#" target="_blank">
+                Consultar reporte
+            </a>
 
-    </section>
+        </section>
 
-    <!-- PAGINA DE CONTACTO -->
-    <section id="contacto" style="display:none;">
 
-        <h1>Integrantes</h1>
+        <!-- PAGINA DE CODIGO -->
+        <section id="codigo" class="oculto">
 
-        <p>OUSHESHIEHSIHSHIEHIE</p>
-        <p>PAPSPAPSPASLLFALFLSALASFA</p>
+            <h2>Codigo en Verilog</h2>
 
-        <button onclick="mostrarPagina('inicio')">
-            Regresar al menú
-        </button>
+            <p>
+                PREGUNTAR SI EL CODIGO SE SUBE CON UN LINK O SE SUBE AL GIT
+            </p>
 
-    </section>
+            <h3>Código del proyecto</h3>
+
+            <p>
+                LO MISMO QUE LO OTRO SI NO BORRAR ESTA SECCINXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            </p>
+
+            <!-- PREGUNTAR SI AGREGAR ENLACE O INCLUIR CODIGO EN GIT AQUI -->
+
+            <button onclick="mostrarPagina('reporte')">
+                Regresar al menú
+            </button>
+
+        </section>
+
+
+        <!-- PAGINA DE EQUIPO -->
+        <section id="equipo" class="oculto">
+
+            <h2>Integrantes</h2>
+
+            <p>Integrante 1: Nombre del integrante</p>
+            <p>Integrante 2: Nombre del integrante</p>
+
+
+            <button onclick="mostrarPagina('reporte')">
+                Regresar al menú
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PAGINA -->
+    <footer>
+        <p>Proyecto de Arquitectura | 2026</p>
+    </footer>
+
 
     <!-- FUNCION PARA CAMBIAR DE PAGINA -->
     <script>
 
         function mostrarPagina(pagina) {
 
-            document.getElementById('Reporte').style.display = 'none';
-            document.getElementById('Codigo').style.display = 'none';
-            document.getElementById('Equipo').style.display = 'none';
+            // Ocultar todas las secciones
+            document.getElementById('reporte').classList.add('oculto');
+            document.getElementById('codigo').classList.add('oculto');
+            document.getElementById('equipo').classList.add('oculto');
 
-            document.getElementById(pagina).style.display = 'block';
+            // Mostrar la sección seleccionada
+            document.getElementById(pagina).classList.remove('oculto');
 
         }
 
@@ -108,4 +223,3 @@
 
 </body>
 </html>
-
