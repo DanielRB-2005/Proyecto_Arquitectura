@@ -1,1 +1,72 @@
-asdasd
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+</head>
+
+<body>
+
+    <!-- PAGINA PRINCIPAL -->
+    <section id="inicio">
+        <h1>Mi Página Web</h1>
+
+        <h2>Botones</h2>
+
+        <button onclick="mostrarPagina('inicio')">
+            Inicio
+        </button>
+
+        <button onclick="mostrarPagina('servicios')">
+            Servicios
+        </button>
+
+        <button onclick="mostrarPagina('contacto')">
+            Contacto
+        </button>
+
+        <h2>Información</h2>
+
+        <p>
+            Bienvenido a mi página web.
+            Aquí encontrarás información sobre nosotros
+            y nuestros servicios.
+        </p>
+    </section>
+
+
+    <!-- PAGINA DE SERVICIOS -->
+    <section id="servicios" style="display:none;">
+
+        <h1>Nuestros Servicios</h1>
+
+        <p>
+            Ofrecemos diferentes servicios para nuestros clientes.
+            Nuestro objetivo es brindar atención de calidad.
+        </p>
+
+        <button onclick="mostrarPagina('inicio')">
+            Regresar al menú
+        </button>
+
+    </section>
+
+    <!-- FUNCION PARA CAMBIAR DE PAGINA -->
+    <script>
+
+        function mostrarPagina(pagina) {
+
+            document.getElementById('inicio').style.display = 'none';
+            document.getElementById('servicios').style.display = 'none';
+            document.getElementById('contacto').style.display = 'none';
+
+            document.getElementById(pagina).style.display = 'block';
+
+        }
+
+    </script>
+
+</body>
+</html>
