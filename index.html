@@ -1,225 +1,207 @@
 
 <!-- PEDIRLE A LA IA QUE ARREGLE LA INTERFAZ QUE ESTA HORRIBLE -->
 <!-- CAMBIAR COLORES QUE ME QUEMAN LOS OJOS -->
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #f1f3f5;
-            color: #222222;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-        }
-
-        header {
-            background-color: #26364a;
-            color: white;
-            padding: 30px 15px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 30px;
-        }
-
-        nav {
-            background-color: white;
-            padding: 18px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        button {
-            background-color: #315b87;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 12px 25px;
-            margin: 5px;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #1c3e63;
-        }
-
-        main {
-            max-width: 850px;
-            margin: 35px auto;
-            padding: 20px;
-        }
-
-        section {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-
-        section h2 {
-            color: #26364a;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        a {
-            color: #315b87;
-            font-weight: bold;
-        }
-
-        .oculto {
-            display: none;
-        }
-
-        footer {
-            margin-top: 50px;
-            background-color: #26364a;
-            color: white;
-            padding: 18px;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 23px;
-            }
-
-            button {
-                width: 90%;
-                margin: 6px auto;
-            }
-
-            main {
-                margin: 15px auto;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Datapath monociclo MIPS 32 bits</title>
+<style>
+  :root{--bg:#fff;--fg:#1a1a1a;--mut:#555;--line:#d0d0d0;--acc:#0b5cab;--card:#f4f6f8}
+  @media (prefers-color-scheme:dark){:root{--bg:#14161a;--fg:#e8e8e8;--mut:#a6a6a6;--line:#363a42;--acc:#6db1ff;--card:#1c1f25}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,Segoe UI,sans-serif}
+  header{background:var(--card);border-bottom:1px solid var(--line);padding:2rem 0 1.2rem}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  h1{margin:0 0 .3rem;font-size:1.8rem}
+  h2{margin:2.2rem 0 .6rem;font-size:1.35rem;border-bottom:2px solid var(--acc);padding-bottom:.2rem}
+  nav{display:flex;flex-wrap:wrap;gap:.3rem 1rem;margin-top:.8rem;font-size:.9rem}
+  a{color:var(--acc)} .mut{color:var(--mut)}
+  .scroll{overflow-x:auto;margin:.6rem 0}
+  table{border-collapse:collapse;width:100%;font-size:.85rem}
+  th,td{border:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical-align:top}
+  th{background:var(--card)}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:.85em}
+  .todo{background:#fff3b0;color:#4a3b00;padding:0 .3rem;border-radius:3px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem 1rem;margin:.8rem 0}
+  img{max-width:100%;height:auto}
+</style>
 </head>
-
 <body>
+<header><div class="wrap">
+  <h1>Simulación y análisis del datapath monociclo MIPS de 32 bits</h1>
+  <div class="mut">Arquitectura de Computadoras · Informática · 2026B · Proyecto final</div>
+  <nav>
+    <a href="#integrantes">Integrantes</a><a href="#objetivo">Objetivo</a><a href="#diagrama">Diagrama</a>
+    <a href="#modulos">Módulos</a><a href="#controles">Controles</a><a href="#instrucciones">Instrucciones</a>
+    <a href="#memorias">Memorias</a><a href="#pruebas">Pruebas</a><a href="#ondas">Formas de onda</a>
+    <a href="#problemas">Problemas</a><a href="#conclusiones">Conclusiones</a><a href="#ia">Uso de IA</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+</div></header>
 
-    <!-- PAGINA PRINCIPAL -->
-    <header>
-        <h1>Proyecto de Arquitectura</h1>
-        <p>Información general del proyecto</p>
-    </header>
+<main class="wrap">
 
-    <!-- BOTONES -->
-    <nav>
-        <button onclick="mostrarPagina('reporte')">
-            Reporte
-        </button>
+<h2 id="integrantes">Integrantes y repositorio</h2>
+<div class="card">
+  <p><span class="todo">[COMPLETAR: nombre completo y aportación de cada integrante]</span></p>
+  <p>Repositorio: <span class="todo">[COMPLETAR: enlace al repositorio de GitHub]</span></p>
+  <p>Herramientas: Icarus Verilog / ModelSim <span class="todo">[COMPLETAR: versión]</span>, GTKWave (opcional), Python 3 (solo para generar pruebas y reporte).</p>
+</div>
 
-        <button onclick="mostrarPagina('codigo')">
-            Codigo
-        </button>
+<h2 id="objetivo">Objetivo y alcance</h2>
+<p>Implementar en Verilog el datapath monociclo MIPS de 32 bits trabajado en clase y demostrar, mediante simulación, la ejecución de las 13 instrucciones obligatorias (add, sub, slt, or, and, addi, slti, andi, ori, sw, lw, beq, j), el recorrido de los datos y las señales de control. Cada instrucción se valida por separado: se prepara el estado inicial, se aplica la instrucción codificada, se da un ciclo de reloj y se compara el estado resultante con el esperado.</p>
 
-        <button onclick="mostrarPagina('equipo')">
-            Equipo
-        </button>
-    </nav>
+<h2 id="diagrama">Diagrama de la implementación</h2>
+<pre class="mermaid">
+flowchart LR
+  PC["pc_reg<br>PC 32 bits"] -->|"pc 32"| IM["imem<br>256 x 32"]
+  PC -->|"pc 32"| P4["PC + 4"]
+  IM -->|"instr 32"| CU["control_unit<br>op [31:26]"]
+  IM -->|"rs, rt 5+5"| RF["regfile<br>32 x 32"]
+  IM -->|"imm 16"| EX["ext<br>16 a 32"]
+  IM -->|"funct 6"| AC["alu_control"]
+  CU -->|"ALUOp 3"| AC
+  CU -.->|"RegDst, RegWrite"| RF
+  CU -.->|"ExtOp"| EX
+  RF -->|"rd1 32"| AL["alu<br>32 bits"]
+  RF -->|"rd2 32"| M1{"mux ALUSrc"}
+  EX -->|"imm_ext 32"| M1
+  M1 -->|"alu_b 32"| AL
+  AC -->|"ALUctl 4"| AL
+  AL -->|"alu_y 32 / zero"| DM["dmem<br>256 x 32"]
+  RF -->|"rd2 = dato a escribir"| DM
+  CU -.->|"MemRead, MemWrite"| DM
+  AL --> M2{"mux MemtoReg"}
+  DM -->|"mem_rd 32"| M2
+  M2 -->|"wr_data 32"| RF
+  P4 --> M3{"mux Branch/Jump<br>siguiente PC"}
+  EX -->|"br_target = PC+4 + imm*4"| M3
+  CU -.->|"Branch AND zero, Jump"| M3
+  M3 -->|"next_pc 32"| PC
+</pre>
+<p class="mut">Línea continua: datos. Línea punteada: señales de control. Bus de controles de 12 bits: {RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, Jump, ExtOp, ALUOp[2:0]}. Destino de j = {PC+4[31:28], índice[25:0], 00}.</p>
 
-    <main>
+<h2 id="modulos">Módulos</h2>
+<div class="scroll"><table>
+<tr><th>Módulo</th><th>Función</th></tr>
+<tr><td><code>pc_reg</code></td><td>Registro del contador de programa (32 bits), se actualiza en el flanco de subida.</td></tr>
+<tr><td><code>imem</code></td><td>Memoria de instrucciones 256×32, lectura combinacional, índice = PC/4.</td></tr>
+<tr><td><code>regfile</code></td><td>32 registros de 32 bits, 2 lecturas combinacionales y 1 escritura síncrona. $zero vale 0 y descarta escrituras.</td></tr>
+<tr><td><code>alu</code></td><td>AND, OR, suma, resta y slt con signo; salida zero.</td></tr>
+<tr><td><code>alu_control</code></td><td>Convierte ALUOp y funct en la operación de 4 bits de la ALU.</td></tr>
+<tr><td><code>control_unit</code></td><td>Decodifica el opcode y genera los 12 bits de control.</td></tr>
+<tr><td><code>dmem</code></td><td>Memoria de datos 256×32, lectura con MemRead, escritura síncrona con MemWrite.</td></tr>
+<tr><td><code>ext</code></td><td>Extiende 16 a 32 bits: con signo (ExtOp=0) o con ceros (ExtOp=1).</td></tr>
+<tr><td><code>mux2</code></td><td>Multiplexor 2 a 1 parametrizable (RegDst, ALUSrc, MemtoReg, siguiente PC).</td></tr>
+<tr><td><code>mips_single</code></td><td>Módulo superior: conecta todo y calcula el siguiente PC (PC+4, beq, j).</td></tr>
+</table></div>
 
-        <!-- PAGINA DE REPORTE -->
-        <section id="reporte">
+<h2 id="controles">Opcode, funct, controles y camino por instrucción</h2>
+<div class="scroll"><table>
+<tr><th>Instrucción</th><th>Opcode</th><th>RegDst</th><th>ALUSrc</th><th>MemtoReg</th><th>RegWrite</th><th>MemRead</th><th>MemWrite</th><th>Branch</th><th>Jump</th><th>ExtOp</th><th>ALUOp</th><th>Camino</th></tr>
+<tr><td>add, sub, slt, or, and</td><td>000000</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>010</td><td>imem → regfile (rs, rt) → ALU → regfile (rd)</td></tr>
+<tr><td>addi</td><td>001000</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>000</td><td>regfile (rs) + ext signo → ALU suma → regfile (rt)</td></tr>
+<tr><td>slti</td><td>001010</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>011</td><td>regfile (rs) + ext signo → ALU slt → regfile (rt)</td></tr>
+<tr><td>andi</td><td>001100</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>100</td><td>regfile (rs) + ext ceros → ALU and → regfile (rt)</td></tr>
+<tr><td>ori</td><td>001101</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>101</td><td>regfile (rs) + ext ceros → ALU or → regfile (rt)</td></tr>
+<tr><td>lw</td><td>100011</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>000</td><td>regfile (rs) + ext signo → ALU suma → dmem lee → regfile (rt)</td></tr>
+<tr><td>sw</td><td>101011</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>000</td><td>regfile (rs, rt) + ext signo → ALU suma → dmem escribe rt</td></tr>
+<tr><td>beq</td><td>000100</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>001</td><td>regfile (rs, rt) → ALU resta, zero → selección de PC</td></tr>
+<tr><td>j</td><td>000010</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>000</td><td>imem → {PC+4[31:28], índice, 00} → PC</td></tr>
+</table></div>
+<p><b>Funct de las instrucciones tipo R (opcode 000000):</b></p>
+<div class="scroll"><table>
+<tr><th>Instrucción</th><th>funct</th><th>Operación ALU (4 bits)</th></tr>
+<tr><td>add</td><td>100000</td><td>0010 (suma)</td></tr>
+<tr><td>sub</td><td>100010</td><td>0110 (resta)</td></tr>
+<tr><td>and</td><td>100100</td><td>0000 (AND)</td></tr>
+<tr><td>or</td><td>100101</td><td>0001 (OR)</td></tr>
+<tr><td>slt</td><td>101010</td><td>0111 (menor que, con signo)</td></tr>
+</table></div>
 
-            <h2>Reporte del Proyecto</h2>
+<h2 id="instrucciones">Instrucciones implementadas</h2>
+<ul>
+  <li><b>Formato R</b> (add, sub, slt, or, and): <code>op[31:26] rs[25:21] rt[20:16] rd[15:11] shamt[10:6] funct[5:0]</code>. slt compara con signo.</li>
+  <li><b>Formato I</b> (addi, slti, andi, ori, lw, sw, beq): <code>op rs rt inmediato[15:0]</code>. addi, slti, lw, sw y beq extienden con signo; andi y ori con ceros.</li>
+  <li><b>Formato J</b> (j): <code>op[31:26] índice[25:0]</code>. Destino = <code>{PC+4[31:28], índice, 00}</code>, sin ranura de retardo.</li>
+  <li>beq tomado: <code>PC + 4 + 4 × inmediato</code>. No tomado: <code>PC + 4</code>.</li>
+</ul>
 
-            <p>
-                REPORTE TODA LA INFO EN ESTA PARTE
-            </p>
+<h2 id="memorias">Organización de memorias</h2>
+<ul>
+  <li><b>imem:</b> 256 palabras de 32 bits, índice <code>PC[9:2]</code> (PC/4). Se precarga con <code>$readmemh("tests/prog.hex")</code>, una palabra por línea en hexadecimal.</li>
+  <li><b>dmem:</b> 256 palabras de 32 bits, direcciones de byte alineadas a 4, índice <code>addr[9:2]</code>. Precarga con <code>tests/dmem_init.hex</code>.</li>
+  <li><b>Registros:</b> precarga con <code>tests/regs_init.hex</code> (32 líneas, una por registro).</li>
+</ul>
 
-            <p>
-                DE QUE VA A TRATAR EL PROYECTO XXXXXXXXXXXXXXXXXXXXXX NO OLVIDAR DE LLENAR
-            </p>
+<h2 id="pruebas">Pruebas y evidencias</h2>
+<p>Cada caso parte de un estado inicial documentado, aplica una instrucción, da un ciclo de reloj y compara controles, registros, memoria y PC. Bus de controles: {RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, Jump, ExtOp, ALUOp}.</p>
+<div class="scroll"><table>
+<tr><th>#</th><th>Instrucción</th><th>Código máquina</th><th>PC y estado inicial</th><th>Controles esperados</th><th>Esperado</th><th>Observado y resultado</th></tr>
+<tr><td>1</td><td>add $t2,$t0,$t1</td><td>0x01095020</td><td>PC=0x00000000<br>$t0=0x00000005<br>$t1=0x00000007</td><td>100100000010</td><td>$t2=0x0000000C<br>PC=0x00000004</td><td></td></tr>
+<tr><td>2</td><td>sub $t2,$t0,$t1</td><td>0x01095022</td><td>PC=0x00000000<br>$t0=0x00000005<br>$t1=0x00000007</td><td>100100000010</td><td>$t2=0xFFFFFFFE<br>PC=0x00000004</td><td></td></tr>
+<tr><td>3</td><td>slt $t2,$t0,$t1</td><td>0x0109502A</td><td>PC=0x00000000<br>$t0=0xFFFFFFFD<br>$t1=0x00000002<br>$t2=0x00000063</td><td>100100000010</td><td>$t2=0x00000001<br>PC=0x00000004</td><td></td></tr>
+<tr><td>4</td><td>slt $t2,$t0,$t1</td><td>0x0109502A</td><td>PC=0x00000000<br>$t0=0x00000002<br>$t1=0xFFFFFFFD<br>$t2=0x00000063</td><td>100100000010</td><td>$t2=0x00000000<br>PC=0x00000004</td><td></td></tr>
+<tr><td>5</td><td>or $t2,$t0,$t1</td><td>0x01095025</td><td>PC=0x00000000<br>$t0=0x0F0F0F0F<br>$t1=0x00FF00FF</td><td>100100000010</td><td>$t2=0x0FFF0FFF<br>PC=0x00000004</td><td></td></tr>
+<tr><td>6</td><td>and $t2,$t0,$t1</td><td>0x01095024</td><td>PC=0x00000000<br>$t0=0x0F0F0F0F<br>$t1=0x00FF00FF</td><td>100100000010</td><td>$t2=0x000F000F<br>PC=0x00000004</td><td></td></tr>
+<tr><td>7</td><td>addi $t0,$t1,-4</td><td>0x2128FFFC</td><td>PC=0x00000000<br>$t1=0x0000000A</td><td>010100000000</td><td>$t0=0x00000006<br>PC=0x00000004</td><td></td></tr>
+<tr><td>8</td><td>slti $t0,$t1,-1</td><td>0x2928FFFF</td><td>PC=0x00000000<br>$t1=0xFFFFFFFB</td><td>010100000011</td><td>$t0=0x00000001<br>PC=0x00000004</td><td></td></tr>
+<tr><td>9</td><td>slti $t0,$t1,-1</td><td>0x2928FFFF</td><td>PC=0x00000000<br>$t1=0x00000003<br>$t0=0x00000063</td><td>010100000011</td><td>$t0=0x00000000<br>PC=0x00000004</td><td></td></tr>
+<tr><td>10</td><td>andi $t0,$t1,0x8FF0</td><td>0x31288FF0</td><td>PC=0x00000000<br>$t1=0xFFFFFFFF</td><td>010100001100</td><td>$t0=0x00008FF0<br>PC=0x00000004</td><td></td></tr>
+<tr><td>11</td><td>ori $t0,$t1,0x8001</td><td>0x35288001</td><td>PC=0x00000000<br>$t1=0x10000000</td><td>010100001101</td><td>$t0=0x10008001<br>PC=0x00000004</td><td></td></tr>
+<tr><td>12</td><td>sw $t0,8($t1)</td><td>0xAD280008</td><td>PC=0x00000000<br>$t0=0xDEADBEEF<br>$t1=0x00000010</td><td>010001000000</td><td>mem[0x18]=0xDEADBEEF<br>PC=0x00000004</td><td></td></tr>
+<tr><td>13</td><td>sw $t0,-4($t1)</td><td>0xAD28FFFC</td><td>PC=0x00000000<br>$t0=0x01020304<br>$t1=0x00000020</td><td>010001000000</td><td>mem[0x1C]=0x01020304<br>PC=0x00000004</td><td></td></tr>
+<tr><td>14</td><td>lw $t0,4($t1)</td><td>0x8D280004</td><td>PC=0x00000000<br>$t1=0x00000008<br>mem[0x0C]=0x12345678</td><td>011110000000</td><td>$t0=0x12345678<br>PC=0x00000004</td><td></td></tr>
+<tr><td>15</td><td>lw $t0,-8($t1)</td><td>0x8D28FFF8</td><td>PC=0x00000000<br>$t1=0x00000020<br>mem[0x18]=0xAABBCCDD</td><td>011110000000</td><td>$t0=0xAABBCCDD<br>PC=0x00000004</td><td></td></tr>
+<tr><td>16</td><td>beq $t0,$t1,3</td><td>0x11090003</td><td>PC=0x00000020<br>$t0=0x00000009<br>$t1=0x00000009</td><td>000000100001</td><td>PC=0x00000030</td><td></td></tr>
+<tr><td>17</td><td>beq $t0,$t1,3</td><td>0x11090003</td><td>PC=0x00000020<br>$t0=0x00000001<br>$t1=0x00000002</td><td>000000100001</td><td>PC=0x00000024</td><td></td></tr>
+<tr><td>18</td><td>beq $t0,$t1,-2</td><td>0x1109FFFE</td><td>PC=0x00000040<br>$t0=0x00000007<br>$t1=0x00000007</td><td>000000100001</td><td>PC=0x0000003C</td><td></td></tr>
+<tr><td>19</td><td>j 0x40</td><td>0x08000040</td><td>PC=0x00000010</td><td>000000010000</td><td>PC=0x00000100</td><td></td></tr>
+<tr><td>20</td><td>j 0x20</td><td>0x08000020</td><td>PC=0x10000008</td><td>000000010000</td><td>PC=0x10000080</td><td></td></tr>
+<tr><td>21</td><td>add $zero,$t0,$t1</td><td>0x01090020</td><td>PC=0x00000000<br>$t0=0x00000005<br>$t1=0x00000007</td><td>100100000010</td><td>$zero=0x00000000<br>PC=0x00000004</td><td></td></tr>
+<tr><td>22</td><td>addi $zero,$zero,5</td><td>0x20000005</td><td>PC=0x00000000</td><td>010100000000</td><td>$zero=0x00000000<br>PC=0x00000004</td><td></td></tr>
+</table></div>
+<p class="mut">Los casos 3 y 4 comprueban slt con signo (-3 &lt; 2 es verdadero; 2 &lt; -3 es falso). Los casos 10 y 11 usan bit 15 = 1 para comprobar la extensión con ceros. Los casos 16 y 17 son beq tomado y no tomado. Los casos 21 y 22 intentan escribir en $zero.</p>
+<div class="card"><span class="todo">[COMPLETAR: en la columna «Observado y resultado» pegar lo que mostró ModelSim para cada caso y marcar PASA o FALLA. Resultado de tb_cases: ___ casos pasan, ___ fallan.]</span></div>
 
-            <!-- AGREGAR LINK DEL REPORTE -->
-            <a href="#" target="_blank">
-                Consultar reporte
-            </a>
+<h3>Programa completo (formatos R, I y J)</h3>
+<p>El archivo <code>tests/prog.hex</code> carga un programa de 21 instrucciones que usa los tres formatos, con un <code>beq</code> tomado, otro no tomado y un <code>j</code>. Se ejecuta durante 24 ciclos con <code>$s0 = 0x0C</code>, <code>$s3 = 0x20</code> y <code>mem[0x40] = 0xCAFEF00D</code>. Resultado en ModelSim: <b>PROGRAMA COMPLETO CORRECTO (34 comprobaciones, 0 fallas)</b>.</p>
 
-        </section>
+<h2 id="ondas">Formas de onda explicadas</h2>
+<div class="card">
+  <p><span class="todo">[COMPLETAR: insertar las capturas de ModelSim con &lt;img src="img/onda_R.png" alt="Recorrido tipo R"&gt; y explicar cada una]</span></p>
+  <p class="mut">Señales: clk, w_pc (PC), w_instr (instrucción), w_ctrl (bus de controles), w_aluctl (operación de la ALU), w_alu (resultado), w_zero, w_t0 a w_t3 y w_s4 (registros). Recorridos sugeridos: R = add $t2,$t0,$t1 (PC 0x08, $t2 pasa de 0 a 2). I = lw $s4,0($s3) (PC 0x2C, $s4 pasa a 8) y beq tomado (PC 0x34 salta a 0x3C). J = j fin (PC 0x40 salta a 0x4C). Para cada captura, comparar lo esperado con lo obtenido.</p>
+</div>
 
+<h2 id="problemas">Problemas y soluciones</h2>
+<div class="card"><span class="todo">[COMPLETAR: problemas reales que encontró el equipo y cómo los resolvió]</span></div>
 
-        <!-- PAGINA DE CODIGO -->
-        <section id="codigo" class="oculto">
+<h2 id="conclusiones">Conclusiones individuales</h2>
+<div class="card"><span class="todo">[COMPLETAR: una conclusión por integrante, escrita por esa persona]</span></div>
 
-            <h2>Codigo en Verilog</h2>
+<h2 id="ia">Declaración de uso de IA</h2>
+<div class="card">
+  <p><b>Herramienta:</b> Claude (Anthropic).</p>
+  <p><b>Propósito:</b> generación inicial de los módulos Verilog, testbenches, vectores de prueba, scripts de apoyo y plantilla de este reporte.</p>
+  <p><b>Aportes incorporados:</b> carpetas <code>src/</code>, <code>tb/</code>, <code>tests/</code>, <code>tools/</code> y <code>docs/</code>.</p>
+  <p><b>Validación:</b> <span class="todo">[COMPLETAR: qué revisó el equipo, qué ejecutó en ModelSim, qué cambios hizo al código]</span></p>
+</div>
 
-            <p>
-                PREGUNTAR SI EL CODIGO SE SUBE CON UN LINK O SE SUBE AL GIT
-            </p>
+<h2 id="referencias">Referencias</h2>
+<ul>
+  <li>D. A. Patterson y J. L. Hennessy, <i>Computer Organization and Design: The Hardware/Software Interface</i>, 5.ª ed., cap. 4.</li>
+  <li>Material, diagramas y prácticas del curso (diapositiva 17, datapath monociclo).</li>
+  <li><span class="todo">[COMPLETAR: otras fuentes o código externo usado]</span></li>
+</ul>
 
-            <h3>Código del proyecto</h3>
+</main>
+<footer class="wrap mut" style="margin:2.5rem auto 2rem;font-size:.85rem">Proyecto final de Arquitectura de Computadoras · 2026B</footer>
 
-            <p>
-                LO MISMO QUE LO OTRO SI NO BORRAR ESTA SECCINXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            </p>
-
-            <!-- PREGUNTAR SI AGREGAR ENLACE O INCLUIR CODIGO EN GIT AQUI -->
-
-            <button onclick="mostrarPagina('reporte')">
-                Regresar al menú
-            </button>
-
-        </section>
-
-
-        <!-- PAGINA DE EQUIPO -->
-        <section id="equipo" class="oculto">
-
-            <h2>Integrantes</h2>
-
-            <p>Integrante 1: Nombre del integrante</p>
-            <p>Integrante 2: Nombre del integrante</p>
-
-
-            <button onclick="mostrarPagina('reporte')">
-                Regresar al menú
-            </button>
-
-        </section>
-
-    </main>
-
-
-    <!-- PIE DE PAGINA -->
-    <footer>
-        <p>Proyecto de Arquitectura | 2026</p>
-    </footer>
-
-
-    <!-- FUNCION PARA CAMBIAR DE PAGINA -->
-    <script>
-
-        function mostrarPagina(pagina) {
-
-            // Ocultar todas las secciones
-            document.getElementById('reporte').classList.add('oculto');
-            document.getElementById('codigo').classList.add('oculto');
-            document.getElementById('equipo').classList.add('oculto');
-
-            // Mostrar la sección seleccionada
-            document.getElementById(pagina).classList.remove('oculto');
-
-        }
-
-    </script>
-
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+</script>
 </body>
 </html>
